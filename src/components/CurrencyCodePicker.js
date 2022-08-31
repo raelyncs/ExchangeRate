@@ -26,5 +26,3 @@ export function CurrencyCodePicker() {
   );
 }
 
-// redux stuff
-export const CurrencyCodePickerContainer = connect()(CurrencyCodePicker);

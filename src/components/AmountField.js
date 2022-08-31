@@ -31,6 +31,3 @@ export function AmountField() {
   );
 }
 
-// redux stuff
-
-export const AmountFieldContainer = connect()(AmountField);

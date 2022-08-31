@@ -59,5 +59,3 @@ export function RateTable() {
     countRef.current++;
   }
 }
-
-export const RateTableContainer = connect(null)(RateTable);

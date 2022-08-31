@@ -5,10 +5,10 @@ import {
   getCurrencyCode,
   getSupportedCurrencies,
 } from "../store/reducers/RateReducer";
-import { RateTableContainer } from "./RateTable";
-import { CurrencyCodePickerContainer } from "./CurrencyCodePicker";
+import { RateTable } from "./RateTable";
+import { CurrencyCodePicker } from "./CurrencyCodePicker";
 import { getExchangeRates } from "../api";
-import { AmountFieldContainer } from "./AmountField";
+import { AmountField } from "./AmountField";
 
 export function ExchangeRate() {
   const dispatch = useDispatch();
@@ -32,18 +32,17 @@ export function ExchangeRate() {
     <>
       <section>
         <h1 className="ExchangeRate-header">
-          Exchange Rates <CurrencyCodePickerContainer />
+          Exchange Rates <CurrencyCodePicker />
         </h1>
       </section>
       <section>
-        <AmountFieldContainer />
+        <AmountField />
       </section>
       <section>
-        <RateTableContainer />
+        <RateTable />
       </section>
     </>
   );
 }
-// redux stuff
 
-export const ExchangeRateContainer = connect(null, null)(ExchangeRate);
+
