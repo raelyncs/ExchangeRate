@@ -7,6 +7,7 @@ import { getName } from "../store/reducers/UserReducer";
 
 export function RateTable({ rates, amount, name }) {
   const nameRef = useRef();
+  const countRef = useRef(0);
 
   return (
     <table className="ExchangeRate-table">
@@ -53,6 +54,7 @@ export function RateTable({ rates, amount, name }) {
         duration: 1900,
       });
     bounce.applyTo(nameRef.current);
+    countRef.current++;
   }
 }
 
