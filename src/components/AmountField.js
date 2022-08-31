@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useCallback } from "react";
-import PropTypes from "prop-types";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAmount } from "../store/reducers/RateReducer";
 import { amountChanged } from "../store/actions/RateActions";
 import { debounce } from "lodash";
@@ -30,4 +29,3 @@ export function AmountField() {
     </form>
   );
 }
-

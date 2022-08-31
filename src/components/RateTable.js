@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Bounce from "bounce.js";
 import { getAmount, getRates } from "../store/reducers/RateReducer";
 import { getName } from "../store/reducers/UserReducer";
