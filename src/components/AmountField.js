@@ -1,13 +1,19 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { getAmount } from "../store/reducers/RateReducer";
 import { amountChanged } from "../store/actions/RateActions";
 import { debounce } from "lodash";
 
-export function AmountField({ amount, changeAmount }) {
+export function AmountField() {
+  const dispatch = useDispatch();
+  const amount = useSelector(getAmount);
+  // useCallback is good when you have a fn thats being passed in as a dependency to useEffect or useMemo, also good when you are passing a callback to a child component, preventing the child component from re-rendering unecessarily
+  const changeAmount = useCallback(
+    (newAmount) => dispatch(amountChanged(newAmount)),
+    []
+  );
   const [displayAmount, setDisplayAmount] = useState(amount);
-  // useMemo
   const onAmountChange = useMemo(
     () => debounce(changeAmount, 500),
     [changeAmount]
@@ -25,26 +31,6 @@ export function AmountField({ amount, changeAmount }) {
   );
 }
 
-// prop types
-AmountField.propTypes = {
-  amount: PropTypes.string,
-  changeAmount: PropTypes.func,
-};
-
 // redux stuff
-function mapStateToProps(state) {
-  return {
-    amount: getAmount(state),
-  };
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
-    changeAmount: (newAmount) => dispatch(amountChanged(newAmount)),
-  };
-}
-
-export const AmountFieldContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AmountField);
+export const AmountFieldContainer = connect()(AmountField);
