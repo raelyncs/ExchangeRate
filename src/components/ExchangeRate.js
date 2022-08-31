@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import { connect, useSelector, useDispatch } from "react-redux";
 import { ratesUpdated } from "../store/actions/RateActions";
 import {
@@ -47,7 +46,4 @@ export function ExchangeRate() {
 }
 // redux stuff
 
-export const ExchangeRateContainer = connect(
-  null,
-  null
-)(ExchangeRate);
+export const ExchangeRateContainer = connect(null, null)(ExchangeRate);
